@@ -1,3 +1,12 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import CurriculumVitae
+
+
+def about_me_index(request):
+    curriculums = CurriculumVitae.objects.all()
+    return render(
+        request=request,
+        template_name="about_me_index.html",
+        context=dict(curriculums=curriculums),
+    )

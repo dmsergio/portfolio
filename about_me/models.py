@@ -12,10 +12,11 @@ class CurriculumVitae(models.Model):
     last_modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"CV: {self.user.name}"
+        return f"CV: {self.user.first_name}"
 
     def __repr__(self):
-        return f"<{self.__class__.__name__}: {self.user.name} ({self.id})>"
+        return (f"<{self.__class__.__name__}: "
+                f"{self.user.first_name} ({self.id})>")
 
 
 class Task(models.Model):
