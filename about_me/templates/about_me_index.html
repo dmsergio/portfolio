@@ -1,11 +1,26 @@
 {% extends "base.html" %}
 {% block page_content %}
     <div class="col-md-8 offset-md-2">
-        {% for curriculum in curriculums %}
+    <article>
+        <h2><u>About me</u></h2>
+        {% for profile in profiles %}
+            <img class="logo" src="" alt="{{ profile.first_name }}">
+            <div class="about_me">
+                <p>My name is <mark>{{ profile.full_name }}</mark>. {{ profile.about_me }}</p>
+            </div>
+            <h4>Where find me?</h4>
+            <h4>A little more about me</h4>
             <div>
-                <h2>{{ curriculum.user.first_name }}{{ curriculum.user.last_name }}</h2>
+                <p>{{ profile.personal_info }}</p>
             </div>
         {% endfor %}
+    </article>
 
     </div>
 {% endblock %}
+
+<style>
+    .about_me {
+        text-align: justify;
+    }
+</style>

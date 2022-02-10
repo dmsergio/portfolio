@@ -1,41 +1,19 @@
 from django.contrib import admin
-from .models import *
+from .models import Profile, SocialNetwork
 
 
-@admin.register(CurriculumVitae)
-class CurriculumVitaeAdmin(admin.ModelAdmin):
-    ...
-
-@admin.register(Book)
-class BookAdmin(admin.ModelAdmin):
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
     list_display = (
-        "name",
-        "author",
+        "first_name",
+        "last_name",
+        "user",
+        "birthdate",
     )
 
-@admin.register(Job)
-class JobAdmin(admin.ModelAdmin):
+@admin.register(SocialNetwork)
+class SocialNetworkAdmin(admin.ModelAdmin):
     list_display = (
         "name",
-        "company",
-        "position",
+        "profile",
     )
-
-@admin.register(ProgrammingLanguage)
-class ProgrammingLanguageAdmin(admin.ModelAdmin):
-    list_display = ("name",)
-
-@admin.register(Skill)
-class SkillAdmin(admin.ModelAdmin):
-    list_display = ("name",)
-
-@admin.register(Study)
-class StudyAdmin(admin.ModelAdmin):
-    list_display = (
-        "name",
-        "college",
-    )
-
-@admin.register(Task)
-class TaskAdmin(admin.ModelAdmin):
-    list_display = ("name",)
